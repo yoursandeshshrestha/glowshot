@@ -14,22 +14,22 @@ interface BackgroundDrawerProps {
 }
 
 const BACKGROUND_IMAGES = [
-  "/Background/1.jpg",
-  "/Background/2.jpg",
-  "/Background/3.jpg",
-  "/Background/4.jpg",
-  "/Background/5.jpg",
-  "/Background/6.jpg",
-  "/Background/7.jpg",
-  "/Background/8.jpg",
-  "/Background/9.jpg",
-  "/Background/10.jpg",
-  "/Background/11.jpg",
-  "/Background/12.jpg",
-  "/Background/13.jpg",
-  "/Background/14.jpg",
-  "/Background/15.jpg",
-  "/Background/16.jpg",
+  "/background/1.jpg",
+  "/background/2.jpg",
+  "/background/3.jpg",
+  "/background/4.jpg",
+  "/background/5.jpg",
+  "/background/6.jpg",
+  "/background/7.jpg",
+  "/background/8.jpg",
+  "/background/9.jpg",
+  "/background/10.jpg",
+  "/background/11.jpg",
+  "/background/12.jpg",
+  "/background/13.jpg",
+  "/background/14.jpg",
+  "/background/15.jpg",
+  "/background/16.jpg",
 ];
 
 export function BackgroundDrawer({
