@@ -1,6 +1,6 @@
-import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { LayoutClient } from "./components/others/LayoutClient";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -12,7 +12,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "Donkey",
   description:
     "Donkey is a platform to turn boring images into professional ones",
@@ -28,7 +28,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <LayoutClient>{children}</LayoutClient>
       </body>
     </html>
   );
