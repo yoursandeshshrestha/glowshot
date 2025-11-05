@@ -276,15 +276,20 @@ export function InlineScale({
       ))}
 
       {/* Keyboard hints */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-4 z-10">
-        <div className="px-4 py-2 bg-white/90 backdrop-blur rounded-lg text-sm text-gray-700">
-          Press <kbd className="px-2 py-1 bg-gray-100 rounded text-xs font-mono">Enter</kbd> to apply
-        </div>
-        {onCancel && (
-          <div className="px-4 py-2 bg-white/90 backdrop-blur rounded-lg text-sm text-gray-700">
-            Press <kbd className="px-2 py-1 bg-gray-100 rounded text-xs font-mono">Esc</kbd> to cancel
+      <div className="absolute bottom-10 right-10 z-10">
+        <div className="bg-white/90 backdrop-blur rounded-lg px-4 py-3 shadow-lg flex items-center gap-4">
+          <div className="flex items-center gap-2 text-sm text-gray-700">
+            Press <kbd className="px-2 py-1 bg-gray-100 rounded text-xs font-mono">Enter</kbd> to apply
           </div>
-        )}
+          {onCancel && (
+            <>
+              <div className="w-px h-6 bg-gray-300"></div>
+              <div className="flex items-center gap-2 text-sm text-gray-700">
+                Press <kbd className="px-2 py-1 bg-gray-100 rounded text-xs font-mono">Esc</kbd> to cancel
+              </div>
+            </>
+          )}
+        </div>
       </div>
     </div>
   );
