@@ -1,4 +1,4 @@
-# Donkey - Turn Boring Images Into Professional Ones
+# Glowshot - Turn Boring Images Into Professional Ones
 
 ## Problem
 

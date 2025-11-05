@@ -240,7 +240,7 @@ function loadImage(src: string): Promise<HTMLImageElement> {
   });
 }
 
-export function downloadImage(dataUrl: string, filename: string = "donkey-export.png") {
+export function downloadImage(dataUrl: string, filename: string = "glowshot-export.png") {
   const link = document.createElement("a");
   link.href = dataUrl;
   link.download = filename;

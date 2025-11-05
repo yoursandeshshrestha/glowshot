@@ -7,7 +7,7 @@ export function Header() {
       <div className="max-w-[1200px] mx-auto px-4 md:px-8">
         <nav className="flex items-center justify-between py-4">
           <Link href="/" className="text-[#37322f] font-semibold text-lg">
-            Donkey
+            Glowshot
           </Link>
 
           <div className="flex items-center gap-6">

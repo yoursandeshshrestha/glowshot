@@ -11,34 +11,34 @@ interface FAQItem {
 
 const faqData: FAQItem[] = [
   {
-    question: "What is Donkey and who is it for?",
+    question: "What is Glowshot and who is it for?",
     answer:
-      "Donkey is a powerful image transformation platform designed for creators, designers, and anyone who needs to quickly add professional backgrounds to their images. It's perfect for social media content creators, product photographers, and marketing professionals.",
+      "Glowshot is a powerful image transformation platform designed for creators, designers, and anyone who needs to quickly add professional backgrounds to their images. It's perfect for social media content creators, product photographers, and marketing professionals.",
   },
   {
     question: "What image formats are supported?",
     answer:
-      "Donkey supports all common image formats including PNG, JPG, JPEG, and WebP. You can upload images of any size, and export them in either PNG or JPG format with adjustable quality settings.",
+      "Glowshot supports all common image formats including PNG, JPG, JPEG, and WebP. You can upload images of any size, and export them in either PNG or JPG format with adjustable quality settings.",
   },
   {
     question: "Can I use custom backgrounds for my images?",
     answer:
-      "Yes! Donkey offers both pre-made gradient backgrounds and the ability to upload your own custom background images. You can also create custom gradients with your preferred colors and directions.",
+      "Yes! Glowshot offers both pre-made gradient backgrounds and the ability to upload your own custom background images. You can also create custom gradients with your preferred colors and directions.",
   },
   {
     question: "Is there a limit on image size or number of exports?",
     answer:
-      "Currently, Donkey is completely free to use with no limits on image size, number of uploads, or exports. You can transform as many images as you need without any restrictions.",
+      "Currently, Glowshot is completely free to use with no limits on image size, number of uploads, or exports. You can transform as many images as you need without any restrictions.",
   },
   {
-    question: "Do I need to create an account to use Donkey?",
+    question: "Do I need to create an account to use Glowshot?",
     answer:
-      "No account required! Donkey works directly in your browser. Simply visit the playground, upload your image, customize it, and download your result. Your privacy is important to us - images are processed client-side and not stored on our servers.",
+      "No account required! Glowshot works directly in your browser. Simply visit the playground, upload your image, customize it, and download your result. Your privacy is important to us - images are processed client-side and not stored on our servers.",
   },
   {
     question: "Can I adjust the size and position of my images?",
     answer:
-      "Absolutely! Donkey provides precise controls for scaling, cropping, and positioning your images. You can adjust canvas dimensions, add padding, crop images inline, and position them exactly where you want on the canvas.",
+      "Absolutely! Glowshot provides precise controls for scaling, cropping, and positioning your images. You can adjust canvas dimensions, add padding, crop images inline, and position them exactly where you want on the canvas.",
   },
 ];
 
@@ -67,7 +67,7 @@ export function FAQ() {
           </div>
           <div className="w-full text-[#37322f]/80 text-lg font-medium leading-7 font-sans">
             Everything you need to know about transforming your images with
-            Donkey.
+            Glowshot.
           </div>
         </motion.div>
 

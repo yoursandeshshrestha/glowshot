@@ -2,7 +2,7 @@
   "lockfileVersion": 1,
   "workspaces": {
     "": {
-      "name": "donkey",
+      "name": "glowshot",
       "dependencies": {
         "framer-motion": "^12.23.24",
         "lucide-react": "^0.552.0",

@@ -56,6 +56,7 @@ export default function PlaygroundPage() {
   const [selectedBlurBlockId, setSelectedBlurBlockId] = useState<string | null>(null);
   const [copiedBlurBlock, setCopiedBlurBlock] = useState<BlurBlock | null>(null);
   const [zoomLevel, setZoomLevel] = useState(85);
+  const [exportFilename, setExportFilename] = useState("glowshot");
 
   const {
     currentBackground,
@@ -316,12 +317,11 @@ export default function PlaygroundPage() {
         blurBlocks: blurBlocks,
       });
 
-      const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
       const sizeName = currentCanvasSize.name
         .toLowerCase()
         .replace(/\s+/g, "-");
       const extension = format === "jpeg" ? "jpg" : "png";
-      downloadImage(dataUrl, `donkey-${sizeName}-${scale}x-${timestamp}.${extension}`);
+      downloadImage(dataUrl, `${exportFilename}-${sizeName}-${scale}x.${extension}`);
     } catch (error) {
       console.error("Failed to export canvas:", error);
     }
@@ -338,6 +338,7 @@ export default function PlaygroundPage() {
         customWidth={customWidth}
         customHeight={customHeight}
         onCustomDimensionsChange={handleCustomDimensionsChange}
+        onFilenameChange={setExportFilename}
       />
       <PlaygroundFooter
         hasImage={!!uploadedImage}

@@ -72,7 +72,7 @@ export function Footer() {
           transition={{ duration: 0.6, delay: 0.4 }}
         >
           <p className="text-[#37322f]/70 text-sm">
-            © {new Date().getFullYear()} Sandesh Shrestha / Donkey - All Rights
+            © {new Date().getFullYear()} Sandesh Shrestha / Glowshot - All Rights
             Reserved
           </p>
         </motion.div>

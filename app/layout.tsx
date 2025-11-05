@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Donkey",
+  title: "Glowshot",
   description:
-    "Donkey is a platform to turn boring images into professional ones",
+    "Glowshot is a platform to turn boring images into professional ones",
 };
 
 export default function RootLayout({

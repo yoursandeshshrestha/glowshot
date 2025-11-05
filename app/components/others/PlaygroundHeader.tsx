@@ -20,6 +20,7 @@ interface PlaygroundHeaderProps {
   customWidth?: number;
   customHeight?: number;
   onCustomDimensionsChange?: (width: number, height: number) => void;
+  onFilenameChange?: (filename: string) => void;
 }
 
 export function PlaygroundHeader({
@@ -31,8 +32,15 @@ export function PlaygroundHeader({
   customWidth = 1200,
   customHeight = 1200,
   onCustomDimensionsChange,
+  onFilenameChange,
 }: PlaygroundHeaderProps) {
-  const [filename, setFilename] = useState("untitled");
+  // Generate initial filename with random value
+  const generateRandomFilename = () => {
+    const randomValue = Math.random().toString(36).substring(2, 8);
+    return `glowshot-${randomValue}`;
+  };
+
+  const [filename, setFilename] = useState(generateRandomFilename());
   const [isEditingFilename, setIsEditingFilename] = useState(false);
   const [isDownloadMenuOpen, setIsDownloadMenuOpen] = useState(false);
   const downloadMenuRef = useRef<HTMLDivElement>(null);
@@ -75,6 +83,13 @@ export function PlaygroundHeader({
     setTempHeight(customHeight.toString());
   }, [customWidth, customHeight]);
 
+  // Notify parent of filename changes
+  useEffect(() => {
+    if (onFilenameChange) {
+      onFilenameChange(filename);
+    }
+  }, [filename, onFilenameChange]);
+
   const handleDownloadClick = (scale: number, format: "png" | "jpeg") => {
     if (onDownload) {
       onDownload(scale, format);
@@ -107,7 +122,7 @@ export function PlaygroundHeader({
           href="/"
           className="text-lg font-medium text-gray-900 hover:text-gray-700 transition-colors"
         >
-          Donkey
+          Glowshot
         </Link>
 
         {/* Center controls */}

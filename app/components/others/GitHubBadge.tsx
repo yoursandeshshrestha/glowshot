@@ -13,7 +13,7 @@ export function GitHubBadge() {
     async function fetchStars() {
       try {
         const response = await fetch(
-          "https://api.github.com/repos/yoursandeshshrestha/Donkey",
+          "https://api.github.com/repos/yoursandeshshrestha/glowshot",
           {
             headers: {
               Accept: "application/vnd.github.v3+json",
@@ -53,7 +53,7 @@ export function GitHubBadge() {
   return (
     <div className="flex items-center">
       <a
-        href="https://github.com/yoursandeshshrestha/Donkey"
+        href="https://github.com/yoursandeshshrestha/Glowshot"
         target="_blank"
         rel="noopener noreferrer"
         className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-medium border border-gray-300 rounded-l-md bg-white hover:bg-gray-50 transition-colors"
@@ -62,7 +62,7 @@ export function GitHubBadge() {
         <span>Star</span>
       </a>
       <a
-        href="https://github.com/yoursandeshshrestha/Donkey/stargazers"
+        href="https://github.com/yoursandeshshrestha/Glowshot/stargazers"
         target="_blank"
         rel="noopener noreferrer"
         className="inline-flex items-center px-3 py-1 text-xs font-medium border border-l-0 border-gray-300 rounded-r-md bg-white hover:bg-gray-50 transition-colors"
