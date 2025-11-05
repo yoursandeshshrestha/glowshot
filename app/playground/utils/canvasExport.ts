@@ -1,4 +1,5 @@
 import { GradientData } from "./gradientGenerator";
+import { BlurBlock } from "../types";
 
 export type ExportFormat = "png" | "jpeg";
 
@@ -23,6 +24,7 @@ interface ExportOptions {
     cropWidth: number;
     cropHeight: number;
   };
+  blurBlocks?: BlurBlock[];
 }
 
 export async function exportCanvas(options: ExportOptions): Promise<string> {
@@ -37,6 +39,7 @@ export async function exportCanvas(options: ExportOptions): Promise<string> {
     backgroundBlur = 0,
     uploadedImageSrc,
     imageTransform,
+    blurBlocks = [],
   } = options;
 
   const exportWidth = width * scale;
@@ -168,6 +171,57 @@ export async function exportCanvas(options: ExportOptions): Promise<string> {
 
     ctx.restore();
   }
+
+  // Draw blur blocks on top
+  blurBlocks.forEach((block) => {
+    ctx.save();
+
+    // Calculate actual pixel positions from percentages
+    const blockX = (width * block.x) / 100;
+    const blockY = (height * block.y) / 100;
+    const blockWidth = (width * block.width) / 100;
+    const blockHeight = (height * block.height) / 100;
+
+    // Create clip region to prevent blur bleeding
+    ctx.beginPath();
+    ctx.rect(blockX, blockY, blockWidth, blockHeight);
+    ctx.clip();
+
+    // Create a temporary canvas with padding for blur
+    const padding = block.blurAmount * 2;
+    const tempCanvas = document.createElement("canvas");
+    const tempCtx = tempCanvas.getContext("2d", { willReadFrequently: false });
+    if (!tempCtx) return;
+
+    tempCanvas.width = (blockWidth + padding * 2) * scale;
+    tempCanvas.height = (blockHeight + padding * 2) * scale;
+
+    // Copy the region with padding to temp canvas
+    tempCtx.drawImage(
+      canvas,
+      (blockX - padding) * scale,
+      (blockY - padding) * scale,
+      (blockWidth + padding * 2) * scale,
+      (blockHeight + padding * 2) * scale,
+      0,
+      0,
+      (blockWidth + padding * 2) * scale,
+      (blockHeight + padding * 2) * scale
+    );
+
+    // Apply blur and draw back (clipped to the block area)
+    ctx.filter = `blur(${block.blurAmount * scale}px)`;
+    ctx.drawImage(
+      tempCanvas,
+      blockX - padding,
+      blockY - padding,
+      blockWidth + padding * 2,
+      blockHeight + padding * 2
+    );
+    ctx.filter = "none";
+
+    ctx.restore();
+  });
 
   // Export with specified format and quality
   if (format === "jpeg") {
