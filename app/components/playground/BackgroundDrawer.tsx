@@ -11,6 +11,8 @@ interface BackgroundDrawerProps {
   onBackgroundSelect: (backgroundPath: string) => void;
   onBackgroundUpload: (file: File) => void;
   onGenerateGradient: () => void;
+  backgroundBlur?: number;
+  onBackgroundBlurChange?: (blur: number) => void;
 }
 
 const BACKGROUND_IMAGES = [
@@ -38,6 +40,8 @@ export function BackgroundDrawer({
   onBackgroundSelect,
   onBackgroundUpload,
   onGenerateGradient,
+  backgroundBlur = 0,
+  onBackgroundBlurChange,
 }: BackgroundDrawerProps) {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -78,6 +82,32 @@ export function BackgroundDrawer({
         {/* Content */}
         <div className="flex-1 overflow-y-auto p-6">
           <div className="space-y-6">
+            {/* Background Blur */}
+            {onBackgroundBlurChange && (
+              <div>
+                <h3 className="text-sm font-medium text-gray-700 mb-3">Background Blur</h3>
+                <div className="flex items-center gap-3">
+                  <input
+                    type="range"
+                    min="0"
+                    max="100"
+                    value={backgroundBlur}
+                    onChange={(e) => onBackgroundBlurChange(Number(e.target.value))}
+                    className="flex-1 h-1 bg-gray-300 rounded-full appearance-none cursor-pointer slider-thumb"
+                  />
+                  <input
+                    type="number"
+                    value={backgroundBlur}
+                    onChange={(e) => onBackgroundBlurChange(Number(e.target.value))}
+                    min="0"
+                    max="100"
+                    className="w-16 px-2 py-1.5 text-xs border border-gray-300 rounded focus:outline-none focus:border-gray-900"
+                  />
+                  <span className="text-xs text-gray-500">px</span>
+                </div>
+              </div>
+            )}
+
             {/* Upload Custom Background */}
             <div>
               <h3 className="text-sm font-medium text-gray-700 mb-3">Custom Upload</h3>
