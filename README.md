@@ -8,6 +8,10 @@ Your screenshots look like crap. Your product images are boring. You need Photos
 
 Upload your image. Pick a background. Crop it. Download it. Done. Takes 30 seconds. Free. No account. No subscription. Works in your browser.
 
+## Demo
+
+<video src="public/Video/demo-video.mp4" controls></video>
+
 ### Example Images
 
 ![Example](public/hero/example-image.jpg)
