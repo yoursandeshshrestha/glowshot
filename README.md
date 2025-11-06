@@ -10,7 +10,7 @@ Upload your image. Pick a background. Crop it. Download it. Done. Takes 30 secon
 
 ## Demo
 
-<video src="public/Video/demo-video.mp4" controls></video>
+![Demo](public/Video/demo-video.gif)
 
 ### Example Images
 
